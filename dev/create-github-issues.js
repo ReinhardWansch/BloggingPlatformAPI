@@ -4,9 +4,13 @@
 // Starte danach das Skript
 // Wenn du sicher gehen willst, führe zuerst einen Dry-Run aus.
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
+import fs from 'node:fs';
+import path from 'node:path';
+import https from 'node:https';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const ISSUES_FILE = process.argv[2]
   ? path.resolve(process.argv[2])
