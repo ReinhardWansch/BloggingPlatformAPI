@@ -1,0 +1,51 @@
+
+[
+  {
+    "title": "Projektgrundlage mit Node.js und Express aufsetzen",
+    "body": "## Ziel\nDie Basis des Backends soll sauber eingerichtet werden.\n\n## Aufgaben\n- Node.js-Projekt initialisieren\n- Express installieren\n- Startskript anlegen\n- Grundstruktur für src, routes, controllers und config vorbereiten\n\n## Akzeptanzkriterien\n- Das Projekt startet lokal ohne Fehler\n- Ein einfacher Server läuft auf einem konfigurierbaren Port\n- Die Ordnerstruktur ist übersichtlich und verständlich"
+  },
+  {
+    "title": "MySQL-Datenbank und Tabelle für Blogposts anlegen",
+    "body": "## Ziel\nDie Datenbankstruktur für die Blogging-Plattform soll vorbereitet werden.\n\n## Aufgaben\n- Datenbank erstellen\n- Tabelle posts entwerfen\n- Felder für id, title, content, category, tags, created_at und updated_at definieren\n\n## Akzeptanzkriterien\n- Die Datenbank lässt sich lokal erstellen\n- Die Tabelle posts existiert mit allen benötigten Spalten\n- Datentypen sind sinnvoll gewählt"
+  },
+  {
+    "title": "Datenbankverbindung und Umgebungsvariablen konfigurieren",
+    "body": "## Ziel\nDie Anwendung soll sicher und sauber mit MySQL verbunden werden.\n\n## Aufgaben\n- Verbindungsmodul für MySQL erstellen\n- Zugangsdaten über Umgebungsvariablen auslagern\n- Fehler beim Verbindungsaufbau behandeln\n\n## Akzeptanzkriterien\n- Die App kann erfolgreich mit der Datenbank verbinden\n- Zugangsdaten sind nicht hart im Code eingetragen\n- Bei Verbindungsfehlern erscheint eine verständliche Meldung"
+  },
+  {
+    "title": "API-Struktur mit Routen und Controller-Logik vorbereiten",
+    "body": "## Ziel\nDie REST-API soll eine klare und wartbare Struktur erhalten.\n\n## Aufgaben\n- Posts-Routen anlegen\n- Controller-Datei vorbereiten\n- Saubere Trennung zwischen Routing, Logik und Datenbankzugriff herstellen\n\n## Akzeptanzkriterien\n- Die Routenstruktur ist nachvollziehbar\n- Die Posts-Endpunkte sind zentral organisiert\n- Die Anwendung ist leicht erweiterbar"
+  },
+  {
+    "title": "Endpunkt zum Erstellen eines Blogposts implementieren",
+    "body": "## Ziel\nNeue Blogposts sollen per API angelegt werden können.\n\n## Aufgaben\n- POST /posts umsetzen\n- Request-Daten entgegennehmen\n- Datensatz in MySQL speichern\n- Antwort mit 201 Created zurückgeben\n\n## Akzeptanzkriterien\n- Ein neuer Blogpost wird korrekt gespeichert\n- Die Antwort enthält die angelegten Daten\n- Ungültige Eingaben führen zu einer 400-Antwort"
+  },
+  {
+    "title": "Endpunkte zum Abrufen aller Posts und einzelner Posts umsetzen",
+    "body": "## Ziel\nBlogposts sollen gelesen werden können.\n\n## Aufgaben\n- GET /posts implementieren\n- GET /posts/:id implementieren\n- 404 behandeln, wenn ein Post nicht existiert\n\n## Akzeptanzkriterien\n- Alle vorhandenen Posts werden als Liste zurückgegeben\n- Ein einzelner Post kann per ID geladen werden\n- Nicht gefundene Einträge liefern eine 404-Antwort"
+  },
+  {
+    "title": "Suchfunktion für Blogposts per term-Query ergänzen",
+    "body": "## Ziel\nPosts sollen nach Titel, Inhalt oder Kategorie gefiltert werden können.\n\n## Aufgaben\n- Query-Parameter term auswerten\n- SQL-Suche mit Teiltreffern umsetzen\n- Ergebnisse sauber zurückgeben\n\n## Akzeptanzkriterien\n- GET /posts?term=tech liefert passende Ergebnisse\n- Die Suche berücksichtigt title, content und category\n- Ohne term werden weiterhin alle Posts zurückgegeben"
+  },
+  {
+    "title": "Endpunkt zum Aktualisieren eines Blogposts implementieren",
+    "body": "## Ziel\nVorhandene Blogposts sollen bearbeitet werden können.\n\n## Aufgaben\n- PUT /posts/:id umsetzen\n- Eingaben validieren\n- updated_at sauber aktualisieren\n- 404 behandeln, wenn der Post nicht existiert\n\n## Akzeptanzkriterien\n- Ein vorhandener Post kann vollständig aktualisiert werden\n- Die Antwort enthält die aktualisierten Daten\n- Ungültige Daten liefern 400, fehlende Posts 404"
+  },
+  {
+    "title": "Endpunkt zum Löschen eines Blogposts implementieren",
+    "body": "## Ziel\nNicht mehr benötigte Blogposts sollen entfernt werden können.\n\n## Aufgaben\n- DELETE /posts/:id umsetzen\n- Erfolgsfall mit 204 No Content beantworten\n- 404 für nicht vorhandene Posts zurückgeben\n\n## Akzeptanzkriterien\n- Ein vorhandener Post wird aus der Datenbank gelöscht\n- Der Erfolgsfall liefert Status 204\n- Nicht gefundene Einträge liefern Status 404"
+  },
+  {
+    "title": "Request-Validierung und zentrales Fehlerhandling ergänzen",
+    "body": "## Ziel\nDie API soll robust und benutzerfreundlich auf Fehler reagieren.\n\n## Aufgaben\n- Pflichtfelder prüfen\n- Leere oder ungültige Eingaben abfangen\n- Einheitliches Fehlerformat für Antworten festlegen\n- Zentrale Middleware für Fehler einrichten\n\n## Akzeptanzkriterien\n- Fehlende Pflichtfelder werden erkannt\n- Alle Fehlerantworten sind konsistent aufgebaut\n- Die API stürzt bei fehlerhaften Requests nicht ab"
+  },
+  {
+    "title": "Postman-Collection und Beispielanfragen erstellen",
+    "body": "## Ziel\nDie API soll einfach testbar und nachvollziehbar werden.\n\n## Aufgaben\n- Requests für Create, Read, Update, Delete anlegen\n- Beispiel-Bodies und Query-Parameter dokumentieren\n- Erfolgs- und Fehlerfälle testen\n\n## Akzeptanzkriterien\n- Alle Endpunkte sind in Postman vorhanden\n- Die wichtigsten Testfälle lassen sich manuell ausführen\n- Die Collection ist für spätere Nutzung gespeichert"
+  },
+  {
+    "title": "README und Projektdokumentation vervollständigen",
+    "body": "## Ziel\nDas Projekt soll verständlich dokumentiert und leicht startbar sein.\n\n## Aufgaben\n- Projektbeschreibung ergänzen\n- Setup-Schritte dokumentieren\n- Umgebungsvariablen erklären\n- API-Endpunkte kurz beschreiben\n\n## Akzeptanzkriterien\n- Neue Entwickler können das Projekt anhand der Doku starten\n- Die wichtigsten Endpunkte sind beschrieben\n- Die README ist klar und anfängerfreundlich"
+  }
+]
