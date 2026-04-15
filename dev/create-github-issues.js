@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Setze in PowerShell die Umgebungsvariablen GITHUB_TOKEN, GITHUB_OWNER und GITHUB_REPO.
+// Setze im Terminal die Umgebungsvariablen GITHUB_TOKEN, GITHUB_OWNER und GITHUB_REPO.
 // Starte danach das Skript
 // Wenn du sicher gehen willst, führe zuerst einen Dry-Run aus.
 
@@ -21,6 +21,12 @@ const dryRun = process.argv.includes('--dry-run');
 function printUsage() {
   console.log(`
 Verwendung:
+  Bash/Zsh:
+    export GITHUB_TOKEN="dein_token"
+    export GITHUB_OWNER="dein_github_name"
+    export GITHUB_REPO="BloggingPlatformAPI"
+    node dev/create-github-issues.js  
+
   PowerShell:
     $env:GITHUB_TOKEN="dein_token"
     $env:GITHUB_OWNER="dein_github_name"

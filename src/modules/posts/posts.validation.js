@@ -1,0 +1,1 @@
+// In posts.validation.js (bzw. falls du sie so nennst src/modules/posts/posts.validations.js) steht die Eingabevalidierung fuer POST/PUT, also Regeln fuer Pflichtfelder, Datentypen und laengen sowie die Rueckgabe klarer 400-Fehlermeldungen bei ungueltigen Requests.

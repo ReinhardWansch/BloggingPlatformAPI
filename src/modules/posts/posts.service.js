@@ -1,0 +1,1 @@
+// Enthält Fachlogik (Validierungsregeln, Ablaufentscheidungen).
