@@ -1,0 +1,1 @@
+// Direkte SQL-Zugriffe auf MySQL.

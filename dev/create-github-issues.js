@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 
-// Setze in PowerShell die Umgebungsvariablen GITHUB_TOKEN, GITHUB_OWNER und GITHUB_REPO.
+// Setze im Terminal die Umgebungsvariablen GITHUB_TOKEN, GITHUB_OWNER und GITHUB_REPO.
 // Starte danach das Skript
 // Wenn du sicher gehen willst, führe zuerst einen Dry-Run aus.
 
-const fs = require('fs');
-const path = require('path');
-const https = require('https');
+import fs from 'node:fs';
+import path from 'node:path';
+import https from 'node:https';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const ISSUES_FILE = process.argv[2]
   ? path.resolve(process.argv[2])
@@ -21,6 +25,12 @@ const dryRun = process.argv.includes('--dry-run');
 function printUsage() {
   console.log(`
 Verwendung:
+  Bash/Zsh:
+    export GITHUB_TOKEN="dein_token"
+    export GITHUB_OWNER="dein_github_name"
+    export GITHUB_REPO="BloggingPlatformAPI"
+    node dev/create-github-issues.js  
+
   PowerShell:
     $env:GITHUB_TOKEN="dein_token"
     $env:GITHUB_OWNER="dein_github_name"

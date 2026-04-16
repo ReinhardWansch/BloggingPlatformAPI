@@ -1,0 +1,1 @@
+// Definiert Endpunkte wie GET /posts, POST /posts.

@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'chore/**'
+      - 'feature/**'
+      - 'fix/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Detect real test script
+        id: detect_tests
+        run: |
+          node -e 'const fs = require("fs"); const packageJson = require("./package.json"); const testScript = packageJson.scripts?.test ?? ""; const hasRealTests = !testScript.includes("no test specified"); fs.appendFileSync(process.env.GITHUB_OUTPUT, "has_tests=" + hasRealTests + "\n");'
+
+      - name: Run tests
+        if: steps.detect_tests.outputs.has_tests == 'true'
+        run: npm test
+
+      - name: Skip placeholder tests
+        if: steps.detect_tests.outputs.has_tests != 'true'
+        run: echo "No real test script configured yet. Skipping npm test."
+
+      - name: Smoke test server startup
+        run: |
+          PORT=3000 node src/server.js &
+          SERVER_PID=$!
+
+          cleanup() {
+            kill $SERVER_PID
+          }
+
+          trap cleanup EXIT
+
+          for i in {1..10}; do
+            if curl -fsS http://127.0.0.1:3000/; then
+              exit 0
+            fi
+            sleep 2
+          done
+
+          echo "Server did not respond in time."
+          exit 1

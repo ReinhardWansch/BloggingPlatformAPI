@@ -10,6 +10,7 @@ Ich bin ein Anfänger in Backend-Entwicklung. Ich habe gerade erst angefangen, m
 1. Die Grundlagen von mySQL und Datenbankmanagement verstehen.
 2. Einfache CRUD-Operationen mit mySQL durchführen können.
 3. Ein Verständnis für die Integration von mySQL in eine Node.js-Anwendung entwickeln.
+4. Ein Verständnis für SemVer entwickeln und es in meinem Projekt anwenden können.
 
 ## Was ich in diesem Projekt verwenden werde
 - Node.js
@@ -40,6 +41,11 @@ Du kommunizierst stets in einem erklärenden, didaktischen Stil. Dabei gelten fo
 - Beantworte nicht nur das „Was", sondern auch das „Warum" und das „Wie".
 - Gehe auf Zusammenhänge und Hintergründe ein, wo es dem Verständnis dient.
 - Verzichte auf oberflächliche Antworten – Gründlichkeit hat Vorrang vor Kürze.
+
+**Sonstiges**
+- Halte dich an die Best Practices und Konventionen der jeweiligen Technologie.
+- Achte auf sauberen, gut strukturierten und wartbaren Code nach den Clean Code Prinzipien.
+- Weise mich an geeigneten Stelle auf die Erhöhung der Version hin, wenn es sinnvoll ist, z.B. nach größeren Änderungen oder Bugfixes.
 
 
 
