@@ -1,1 +1,0 @@
-Diese Datei ist nur zum testen ob der main-Branch für Pushes gesperrt ist.
