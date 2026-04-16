@@ -27,7 +27,7 @@ jobs:
       - name: Detect real test script
         id: detect_tests
         run: |
-          node -e "const testScript = require('./package.json').scripts?.test ?? ''; const hasRealTests = !testScript.includes('no test specified'); require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `has_tests=${hasRealTests}\n`);"
+          node -e 'const fs = require("fs"); const packageJson = require("./package.json"); const testScript = packageJson.scripts?.test ?? ""; const hasRealTests = !testScript.includes("no test specified"); fs.appendFileSync(process.env.GITHUB_OUTPUT, "has_tests=" + hasRealTests + "\n");'
 
       - name: Run tests
         if: steps.detect_tests.outputs.has_tests == 'true'
