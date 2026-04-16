@@ -1,19 +1,22 @@
-/*
-In env.js steht normalerweise die zentrale Umgebungs-Konfiguration deiner App.
+import dotenv from 'dotenv';
 
-Kurz enthält die Datei meist:
+dotenv.config();
 
-1. Laden der Umgebungsvariablen  
-Zum Beispiel über dotenv, damit Werte aus .env in process.env verfügbar sind.
+const DEFAULT_PORT = 3000;
 
-2. Validieren der Pflichtwerte  
-Prüfen, ob wichtige Variablen wie DB_HOST, DB_USER oder PORT gesetzt sind. Falls etwas fehlt, wird die App früh mit klarer Fehlermeldung beendet.
+const parsePort = (value) => {
+  const parsedPort = Number.parseInt(value, 10);
 
-3. Normalisieren von Datentypen  
-Beispiel: PORT von String zu Zahl umwandeln.
+  if (Number.isInteger(parsedPort) && parsedPort > 0) {
+    return parsedPort;
+  }
 
-4. Export eines config-Objekts  
-Andere Dateien importieren dann nur dieses Objekt statt überall direkt process.env zu lesen.
+  return DEFAULT_PORT;
+};
 
-Kurz gesagt: env.js ist die eine, saubere Quelle für Konfigurationswerte in deinem Backend.
-*/
+const env = {
+  nodeEnv: process.env.NODE_ENV ?? 'development',
+  port: parsePort(process.env.PORT)
+};
+
+export default env;
