@@ -1,19 +1,27 @@
-/*
-In db.js steht normalerweise die Datenbank-Konfiguration und der Verbindungsaufbau zu MySQL.
+import mysql from 'mysql2/promise';
 
-Kurz gesagt enthält die Datei meist:
+import env from './env.js';
 
-1. Einlesen der DB-Umgebungsvariablen  
-Host, Port, Benutzer, Passwort, Datenbankname aus process.env.
+const pool = mysql.createPool({
+	host: env.dbHost,
+	port: env.dbPort,
+	user: env.dbUser,
+	password: env.dbPassword,
+	database: env.dbName,
+	waitForConnections: true,
+	connectionLimit: 10,
+	queueLimit: 0,
+	timezone: 'Z'
+});
 
-2. Erstellen einer Verbindung oder eines Connection-Pools  
-Ein Pool ist eine Sammlung wiederverwendbarer Verbindungen und ist für APIs fast immer besser als eine Einzelverbindung.
+export const checkDbConnection = async () => {
+	const connection = await pool.getConnection();
 
-3. Export der DB-Instanz  
-Damit Repository-Dateien diese Instanz für SQL-Queries nutzen können.
+	try {
+		await connection.ping();
+	} finally {
+		connection.release();
+	}
+};
 
-4. Optional: kleiner Verbindungscheck beim Start  
-Zum Beispiel ein Test-Query, damit du früh merkst, ob die DB erreichbar ist.
-
-Merksatz: db.js ist die zentrale Stelle, die deine App mit MySQL verbindet und diese Verbindung für den Rest des Backends bereitstellt.
-*/
+export default pool;
