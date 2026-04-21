@@ -19,7 +19,6 @@ Die Datenbankstruktur für die Blogging-Plattform soll vorbereitet werden.
 ## Aufgabe für mich (vor dem nächsten Issue):
 - Eine `.env` erzeugen
 - Die Umgebungsvariablen aus `.env.example` entfernen und in `.env` eintragen
-- Die Fallback-Ports aus `env.js` entfernen und stattdessen einen Fehler erzeugen, wenn keine Ports geparst werden können
 - Die Fallback-Umgebungsvariablen aus `docker-compose.yml` entfernen
 - Ergebnis sollte sein, dass ohne Korrekt gesetzte Umgebungsvariablen in `.env` nichts funktioniert
 - Bonus: Die Fälle abfangen, in denen nicht gesetzte U.variablen zu Errors führen
