@@ -1,6 +1,6 @@
 {
   "name": "bloggingplatformapi",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "practice project from roadmap.sh for learning how to build a REST API with Node.js, Express and MySQL",
   "main": "src/server.js",
   "directories": {
