@@ -1,4 +1,11 @@
--- 1. Tabellen-Erstellung in migrations ablegen (Hauptweg).
--- 2. schema.sql optional als dokumentierten Snapshot behalten.
--- 3. In README kurz festhalten: „Schema-Änderungen nur über Migrations“.
+CREATE TABLE IF NOT EXISTS posts (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	title VARCHAR(255) NOT NULL,
+	content TEXT NOT NULL,
+	category VARCHAR(100) NOT NULL,
+	tags JSON NOT NULL,
+	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
+);
 
