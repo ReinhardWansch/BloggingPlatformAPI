@@ -1,5 +1,4 @@
 import mysql from 'mysql2/promise';
-
 import env from './env.js';
 
 const pool = mysql.createPool({
@@ -16,7 +15,6 @@ const pool = mysql.createPool({
 
 export const checkDbConnection = async () => {
 	const connection = await pool.getConnection();
-
 	try {
 		await connection.ping();
 	} finally {

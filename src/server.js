@@ -8,11 +8,9 @@ const startServer = async () => {
   try {
     await checkDbConnection();
     console.log('Database connection established.');
-
     const server = app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
-
     return server;
   } catch (error) {
     console.error('Failed to connect to the database:', error.message);
