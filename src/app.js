@@ -1,5 +1,6 @@
 import express from 'express';
 import { checkDbConnection } from './config/db.js';
+import postsRoutes from './modules/posts/posts.routes.js';
 
 const app = express();
 
@@ -32,5 +33,7 @@ app.get('/health/db', async (_request, response) => {
     });
   }
 });
+
+app.use('/posts', postsRoutes);
 
 export default app;
